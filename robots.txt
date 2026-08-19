@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Áreas internas, sem conteúdo para busca
+Disallow: /includes/
+Disallow: /data/
+
+# Cópias antigas do site que não devem competir com o original
+Disallow: /SiteLumira/
+Disallow: /desativado/
+
+# Arquivo de fotos em tamanho original, pesado e sem uso público
+Disallow: /assets/images/novas/
+
+Sitemap: https://www.colegiolumira.com/sitemap.xml

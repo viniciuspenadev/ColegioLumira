@@ -1,0 +1,29 @@
+# Controle de versão e editor
+.git
+.gitignore
+**/.DS_Store
+.vscode
+
+# Documentação
+README.md
+
+# Credenciais locais: em produção as chaves vêm de variáveis de ambiente.
+# Sem esta linha o container leva o arquivo e ignora as envs do painel.
+.env
+.env.local
+includes/secrets.local.php
+
+# Ferramentas de build: o CSS já vai compilado em assets/css/style.css
+node_modules
+package.json
+package-lock.json
+tailwind.config.js
+assets/css/input.css
+
+# O próprio build
+Dockerfile
+.dockerignore
+
+# Fotos em tamanho original de câmera. Ficam no repositório como arquivo,
+# mas não são servidas por nenhuma página.
+assets/images/novas

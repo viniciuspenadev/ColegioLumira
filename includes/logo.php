@@ -1,0 +1,15 @@
+<?php
+// Default props
+$className = $className ?? "h-12";
+// Ensure base_url is set if accessing directly (fallback)
+$base_url = $base_url ?? '';
+?>
+<div class="relative <?php echo $className; ?> select-none logo-container">
+    <!-- White Logo (Visible on Transparent Header) -->
+    <img src="<?php echo $base_url; ?>assets/images/logo_white.webp" alt="Colégio Lumirá"
+        class="logo-white relative z-10 h-full w-auto object-contain transition-opacity duration-300" />
+
+    <!-- Original Logo (Visible on White Header) -->
+    <img src="<?php echo $base_url; ?>assets/images/logo_original.webp" alt="Colégio Lumirá"
+        class="logo-original absolute top-0 left-0 z-20 h-full w-auto object-contain transition-opacity duration-300 opacity-0" />
+</div>

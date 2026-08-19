@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    /* Faixas com rolagem horizontal (tabs deslizantes, carrosséis) */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@layer components {
+
+    /* Vaga-lume, o bicho do logo. Posicao e ritmo vem por variaveis inline. */
+    .firefly {
+        position: absolute;
+        border-radius: 9999px;
+        background: radial-gradient(circle, #ffe6bd 0%, #f59e3f 45%, rgba(245, 158, 63, 0) 72%);
+        box-shadow: 0 0 0.7rem rgba(245, 158, 63, 0.8);
+        animation:
+            lum-drift var(--dur, 14s) ease-in-out infinite,
+            lum-glow var(--gdur, 3.5s) ease-in-out infinite;
+    }
+}
+
+@keyframes lum-drift {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(var(--dx, 20px), var(--dy, -20px), 0);
+    }
+}
+
+@keyframes lum-glow {
+
+    0%,
+    100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .firefly {
+        animation: none;
+    }
+}
