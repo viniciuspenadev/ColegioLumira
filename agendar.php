@@ -210,7 +210,7 @@ include 'includes/constants.php';
                                             class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-lumira-blue focus:ring-2 focus:ring-lumira-blue/20 outline-none transition-all text-slate-600">
                                             <option>Imediata</option>
                                             <option>Próximo Semestre</option>
-                                            <option>Ano que vem (2026)</option>
+                                            <option>Ano que vem (2027)</option>
                                         </select>
                                     </div>
                                     <div class="md:col-span-2">

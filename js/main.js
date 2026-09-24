@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Marketing Modal ---
     const modal = document.getElementById('marketing-modal');
-    if (modal) { // && !sessionStorage.getItem('lumira_promo_2026_seen')) {
+    if (modal) { // && !sessionStorage.getItem('lumira_promo_2027_seen')) {
         setTimeout(() => {
             modal.classList.remove('invisible', 'pointer-events-none', 'opacity-0');
             modal.querySelector('#marketing-modal-bg').classList.add('bg-black/60', 'backdrop-blur-sm');
@@ -596,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(() => {
                 modal.classList.add('opacity-0', 'invisible', 'pointer-events-none');
-                sessionStorage.setItem('lumira_promo_2026_seen', 'true');
+                sessionStorage.setItem('lumira_promo_2027_seen', 'true');
             }, 500);
         }
 

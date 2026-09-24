@@ -10,13 +10,15 @@ $PILAR_FIREFLIES = [
     ['x' => 52, 'y' => 92, 's' => 5, 'dx' => 18, 'dy' => -24, 'd' => 18, 'g' => 3.6, 'delay' => 1.1],
 ];
 ?>
-<section id="methodology" class="py-12 md:py-16 bg-lumira-sky relative overflow-hidden">
-    <!-- O ciano puro deixa o titulo em branco com 2.9:1 de contraste. Aprofundar
-         so este canto leva a 4.8:1 sem mexer na cor do resto da secao. -->
-    <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(58rem_32rem_at_0%_0%,#1F5F73_0%,rgba(31,95,115,0.85)_30%,transparent_68%)]">
-    </div>
+<section id="methodology" class="py-16 md:py-24 lg:min-h-[44rem] flex items-center bg-lumira-dark relative overflow-hidden">
+    <!-- Foto do pátio ocupando a seção inteira -->
+    <img src="assets/images/pilares-bg.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"
+        width="2400" height="1600"
+        class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" />
+    <!-- Véu azul-petróleo: garante contraste do título branco e dos cards
+         centralizados sem apagar as cores do pátio. -->
     <div
-        class="absolute bottom-0 right-0 w-[34rem] h-[34rem] bg-white/15 rounded-full blur-3xl translate-x-1/4 translate-y-1/4">
+        class="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#1F5F73]/80 via-[#1F5F73]/45 to-[#1F5F73]/30">
     </div>
 
     <!-- Linhas pontilhadas: andam pelo traçado e vão sumindo e voltando -->
@@ -31,72 +33,53 @@ $PILAR_FIREFLIES = [
         </g>
     </svg>
 
-    <div class="container mx-auto px-4 md:px-8 relative z-10">
+    <div class="container w-full mx-auto px-4 md:px-8 relative z-10">
 
-        <!-- w-fit: o bloco encolhe ate a largura do par, entao o titulo nasce alinhado a ele -->
-        <div class="w-full lg:w-fit mx-auto">
-
-        <h2 class="text-white font-bold uppercase tracking-wider text-sm flex items-center gap-2 mb-6 md:mb-8">
-            <span class="w-8 h-0.5 bg-lumira-orange"></span>
+        <h2 class="text-white font-extrabold uppercase tracking-wider text-2xl md:text-4xl flex items-center justify-center gap-3 md:gap-5 mb-8 md:mb-12 [text-shadow:0_2px_12px_rgba(0,0,0,0.35)]">
+            <span class="w-8 md:w-14 h-1 rounded-full bg-lumira-orange"></span>
             Nossos Pilares
+            <span class="w-8 md:w-14 h-1 rounded-full bg-lumira-orange"></span>
         </h2>
 
-        <div class="flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-0">
+        <!-- Pilares 2x2, centralizados -->
+        <div class="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto relative">
 
-            <!-- Pilares, em zigue-zague -->
-            <div class="flex flex-col gap-3 w-full lg:w-[21rem] xl:w-[22rem] lg:shrink-0 relative z-10">
-
-                <!-- vaga-lumes passeando por cima dos cards -->
-                <div class="absolute -inset-4 z-20 pointer-events-none" aria-hidden="true">
-                    <?php foreach ($PILAR_FIREFLIES as $f): ?>
-                        <span class="firefly"
-                            style="left:<?php echo $f['x']; ?>%; top:<?php echo $f['y']; ?>%; width:<?php echo $f['s']; ?>px; height:<?php echo $f['s']; ?>px; --dx:<?php echo $f['dx']; ?>px; --dy:<?php echo $f['dy']; ?>px; --dur:<?php echo $f['d']; ?>s; --gdur:<?php echo $f['g']; ?>s; animation-delay:<?php echo $f['delay']; ?>s, <?php echo $f['delay'] / 2; ?>s;"></span>
-                    <?php endforeach; ?>
-                </div>
-
-                <?php foreach ($FEATURES as $idx => $feature):
-                    $par = $idx % 2 === 0;
-                    // puxa para um lado e inclina para o outro: o desalinho é o efeito
-                    $lado = $par ? 'sm:self-start sm:-rotate-[1.2deg]' : 'sm:self-end sm:rotate-[1.2deg]';
-                    $canto = $par ? 'rounded-3xl sm:rounded-bl-md' : 'rounded-3xl sm:rounded-tr-md';
-                    $cor = $par
-                        ? 'bg-lumira-light text-lumira-blue group-hover:bg-lumira-blue group-hover:text-white'
-                        : 'bg-orange-50 text-lumira-orange group-hover:bg-lumira-orange group-hover:text-white';
-                    ?>
-                    <article
-                        class="group w-full sm:w-[94%] <?php echo $lado; ?> <?php echo $canto; ?> bg-white shadow-lg shadow-lumira-dark/10 p-3.5 sm:p-4 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 sm:hover:rotate-0">
-                        <div class="flex items-start gap-3">
-                            <div
-                                class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 <?php echo $cor; ?>">
-                                <i data-lucide="<?php echo $feature['icon']; ?>" class="w-4 h-4" stroke-width="1.9"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <h3
-                                    class="text-[0.95rem] font-bold text-lumira-dark mb-0.5 group-hover:text-lumira-blue transition-colors">
-                                    <?php echo $feature['title']; ?>
-                                </h3>
-                                <p class="text-slate-500 text-[0.8rem] leading-snug">
-                                    <?php echo $feature['description']; ?>
-                                </p>
-                            </div>
-                        </div>
-                    </article>
+            <!-- vaga-lumes passeando por cima dos cards -->
+            <div class="absolute -inset-4 z-20 pointer-events-none" aria-hidden="true">
+                <?php foreach ($PILAR_FIREFLIES as $f): ?>
+                    <span class="firefly"
+                        style="left:<?php echo $f['x']; ?>%; top:<?php echo $f['y']; ?>%; width:<?php echo $f['s']; ?>px; height:<?php echo $f['s']; ?>px; --dx:<?php echo $f['dx']; ?>px; --dy:<?php echo $f['dy']; ?>px; --dur:<?php echo $f['d']; ?>s; --gdur:<?php echo $f['g']; ?>s; animation-delay:<?php echo $f['delay']; ?>s, <?php echo $f['delay'] / 2; ?>s;"></span>
                 <?php endforeach; ?>
             </div>
 
-            <!-- As professoras: recorte solto, pisando na borda da seção. Sem card, sem moldura. -->
-            <div class="relative flex justify-center lg:shrink-0 lg:-ml-12 xl:-ml-16 pointer-events-none">
-                <div class="relative">
-                    <!-- halo claro, para o recorte não flutuar sobre o ciano -->
-                    <div class="absolute inset-x-0 bottom-0 h-3/4 bg-white/25 rounded-full blur-3xl scale-125"></div>
-                    <img src="assets/images/professoras-lumira.webp"
-                        alt="Duas professoras do Colégio Lumirá sorrindo, de jaleco branco com o logo da escola"
-                        loading="lazy" decoding="async" width="775" height="900"
-                        class="relative w-64 sm:w-80 lg:w-[38rem] xl:w-[41rem] h-auto -mb-14 md:-mb-24 lg:-mb-40 xl:-mb-44 drop-shadow-2xl" />
-                </div>
-            </div>
-
-        </div>
+            <?php foreach ($FEATURES as $idx => $feature):
+                $par = $idx % 2 === 0;
+                // coluna da esquerda inclina para um lado, a da direita para o outro
+                $lado = $par ? 'sm:-rotate-[1.2deg]' : 'sm:rotate-[1.2deg] sm:translate-y-4';
+                $canto = $par ? 'rounded-3xl sm:rounded-bl-md' : 'rounded-3xl sm:rounded-tr-md';
+                $cor = $par
+                    ? 'bg-lumira-light text-lumira-blue group-hover:bg-lumira-blue group-hover:text-white'
+                    : 'bg-orange-50 text-lumira-orange group-hover:bg-lumira-orange group-hover:text-white';
+                ?>
+                <article
+                    class="group <?php echo $lado; ?> <?php echo $canto; ?> bg-white shadow-lg shadow-lumira-dark/20 p-4 sm:p-5 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 sm:hover:rotate-0">
+                    <div class="flex items-start gap-3">
+                        <div
+                            class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-300 <?php echo $cor; ?>">
+                            <i data-lucide="<?php echo $feature['icon']; ?>" class="w-5 h-5" stroke-width="1.9"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3
+                                class="text-base font-bold text-lumira-dark mb-1 group-hover:text-lumira-blue transition-colors">
+                                <?php echo $feature['title']; ?>
+                            </h3>
+                            <p class="text-slate-500 text-sm leading-snug">
+                                <?php echo $feature['description']; ?>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
